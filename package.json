@@ -1,0 +1,33 @@
+{
+  "name": "playwright-saucedemo-automation",
+  "version": "1.0.0",
+  "description": "Playwright automation framework for testing saucedemo.com",
+  "keywords": [
+    "playwright",
+    "automation",
+    "testing",
+    "sqa"
+  ],
+  "homepage": "https://github.com/tomalgomes/playwright-saucedemo-automation#readme",
+  "bugs": {
+    "url": "https://github.com/tomalgomes/playwright-saucedemo-automation/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomalgomes/playwright-saucedemo-automation.git"
+  },
+  "license": "MIT",
+  "author": "tomalgomes",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npx playwright test --headed"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.1",
+    "@types/node": "^25.2.0"
+  }
+}
