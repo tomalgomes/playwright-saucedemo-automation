@@ -4,7 +4,7 @@ export class LoginObjects {
     this.usernameInput = this.page.getByRole("textbox", { name: "Username" });
     this.passwordInput = this.page.getByRole("textbox", { name: "Password" });
     this.loginButton = this.page.getByRole("button", { name: "Login" });
-    this.loginErrorMessage = this.page.getByText(
+    this.lockedOutErrorMessage = this.page.getByText(
       "Epic sadface: Sorry, this user has been locked out.",
       { exact: true },
     );
