@@ -8,6 +8,8 @@ test.describe("Saucedemo Login Feature", () => {
     await login.enterUserName("locked_out_user");
     await login.enterPassword("secret_sauce");
     await login.clickOnLoginButton();
-    expect(await login.isErrorMessageVisible()).toBeTruthy();
+    await expect(login.getErrorMessage()).toHaveText(
+      "Epic sadface: Sorry, this user has been locked out.",
+    );
   });
 });

@@ -18,8 +18,7 @@ export class Login {
     await this.locator.loginButton.click();
   }
 
-  async isErrorMessageVisible() {
-    const isVisible = await this.locator.lockedOutErrorMessage.isVisible();
-    return isVisible;
+  getErrorMessage() {
+    return this.locator.lockedOutErrorMessage;
   }
 }
