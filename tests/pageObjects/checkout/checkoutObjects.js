@@ -11,5 +11,6 @@ export class CheckoutObjects {
     this.totalPrice = this.page.locator(".summary_total_label");
     this.finishButton = this.page.getByRole("button", { name: "Finish" });
     this.successfulOrderMessage = this.page.locator("[data-test='complete-header']");
+    
   }
 }

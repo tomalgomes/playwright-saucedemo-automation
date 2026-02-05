@@ -4,10 +4,10 @@ import { Products } from "../pageObjects/products/productsActions";
 import { Cart } from "../pageObjects/cart/cartActions";
 import { Checkout } from "../pageObjects/checkout/checkoutActions";
 
-test.describe("Purchase Journey With Three Products", () => {
+test.describe("Purchase Journey with Three Products", () => {
   const firstName = "Peter",
     lastName = "Pan",
-    zipCode = "N3v3r1an6";
+    zipCode = "Neverland";
 
   let login, product, cart, checkout;
 
@@ -18,7 +18,7 @@ test.describe("Purchase Journey With Three Products", () => {
     checkout = new Checkout(page);
     await page.goto("https://www.saucedemo.com/");
   });
-  test("Successful purchase with standard_user", async () => {
+  test("Successful purchase with standard_user", async ({ page }) => {
     await login.enterUserName("standard_user");
     await login.enterPassword("secret_sauce");
     await login.clickOnLoginButton();
@@ -26,7 +26,7 @@ test.describe("Purchase Journey With Three Products", () => {
     await product.clickOnHamburgerMenu();
     await product.clickOnResetAppState();
     await product.clickOnCloseMenu();
-    await product.clickOnAddToCartButton(3);
+    await product.clickOnAddToCartButton();
     await product.clickOnShoppingCartButton();
 
     await cart.clickOnCheckoutButton();
