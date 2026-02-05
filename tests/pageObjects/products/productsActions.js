@@ -7,6 +7,7 @@ export class Products {
   }
 
   async clickOnHamburgerMenu() {
+    await this.locator.hamburgerMenu.isEnabled({ timeout: 10000 });
     await this.locator.hamburgerMenu.click();
   }
 
@@ -18,8 +19,12 @@ export class Products {
     await this.locator.closeMenu.click();
   }
 
-  async clickOnAddToCartButton() {
-    for (let i = 0; i < 3; i++) {
+  async filterByZtoA() {
+    await this.locator.filterDropdown.selectOption("za");
+  }
+
+  async clickOnAddToCartButton(n) {
+    for (let i = 0; i < n; i++) {
       await this.locator.addToCartButtons.nth(i).click();
     }
   }
