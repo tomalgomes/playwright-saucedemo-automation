@@ -24,10 +24,16 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "npx playwright test --headed"
+    "all": "npx playwright test --headed",
+    "locked": "npx playwright test lockedOutUser.spec.js --headed",
+    "standard": "npx playwright test standardUser.spec.js --headed",
+    "glitch": "npx playwright test performanceGlitchUser.spec.js --headed",
+    "getReport": "allure generate ./allure-results --clean && allure open ./allure-report"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.1",
-    "@types/node": "^25.2.0"
+    "@types/node": "^25.2.0",
+    "allure-commandline": "^2.36.0",
+    "allure-playwright": "^3.4.5"
   }
 }

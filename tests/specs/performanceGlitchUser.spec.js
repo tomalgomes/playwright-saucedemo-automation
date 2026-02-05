@@ -4,10 +4,10 @@ import { Products } from "../pageObjects/products/productsActions";
 import { Cart } from "../pageObjects/cart/cartActions";
 import { Checkout } from "../pageObjects/checkout/checkoutActions";
 
-test.describe("Purchase Journey with Three Products", () => {
-  const firstName = "Peter",
-    lastName = "Pan",
-    zipCode = "Neverland";
+test.describe("Purchase Journey Applying Filter", () => {
+  const firstName = "Sherlock",
+    lastName = "Holmes",
+    zipCode = "221B";
 
   let login, product, cart, checkout;
 
@@ -18,15 +18,16 @@ test.describe("Purchase Journey with Three Products", () => {
     checkout = new Checkout(page);
     await page.goto("https://www.saucedemo.com/");
   });
-  test("Successful purchase with standard_user", async ({ page }) => {
-    await login.enterUserName("standard_user");
+  test("Successful purchase with standard_user", async () => {
+    await login.enterUserName("performance_glitch_user");
     await login.enterPassword("secret_sauce");
     await login.clickOnLoginButton();
 
     await product.clickOnHamburgerMenu();
     await product.clickOnResetAppState();
     await product.clickOnCloseMenu();
-    await product.clickOnAddToCartButton(3);
+    await product.filterByZtoA();
+    await product.clickOnAddToCartButton(1);
     await product.clickOnShoppingCartButton();
 
     await cart.clickOnCheckoutButton();
@@ -36,17 +37,13 @@ test.describe("Purchase Journey with Three Products", () => {
     await checkout.enterZipCode(zipCode);
     await checkout.clickOnContinueButton();
     const productNames = await checkout.getProductNames();
-    expect(productNames).toEqual([
-      "Sauce Labs Backpack",
-      "Sauce Labs Bolt T-Shirt",
-      "Sauce Labs Onesie",
-    ]);
+    expect(productNames).toEqual(["Test.allTheThings() T-Shirt (Red)"]);
     const expectedTotal = await checkout.getExpectedTotal();
     const actualTotal = await checkout.getActualTotal();
     expect(actualTotal).toBeCloseTo(expectedTotal, 2);
     await checkout.clickOnFinishButton();
     await expect(checkout.getSuccessfulOrderMessage()).toHaveText("Thank you for your order!");
-
+    
     await product.clickOnHamburgerMenu();
     await product.clickOnResetAppState();
     await product.clickOnLogoutButton();
