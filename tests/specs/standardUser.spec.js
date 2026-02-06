@@ -18,7 +18,7 @@ test.describe("Purchase Journey with Three Products", () => {
     checkout = new Checkout(page);
     await page.goto("https://www.saucedemo.com/");
   });
-  test("Successful purchase with standard_user", async ({ page }) => {
+  test("Successful purchase with standard_user", async () => {
     await login.enterUserName("standard_user");
     await login.enterPassword("secret_sauce");
     await login.clickOnLoginButton();

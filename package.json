@@ -28,7 +28,8 @@
     "locked": "npx playwright test lockedOutUser.spec.js --headed",
     "standard": "npx playwright test standardUser.spec.js --headed",
     "glitch": "npx playwright test performanceGlitchUser.spec.js --headed",
-    "getReport": "allure generate ./allure-results --clean && allure open ./allure-report"
+    "getReport": "allure generate ./allure-results --clean && allure open ./allure-report",
+    "cleanReport": "rmdir /s /q allure-results && rmdir /s /q allure-report"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.1",

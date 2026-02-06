@@ -18,7 +18,7 @@ test.describe("Purchase Journey Applying Filter", () => {
     checkout = new Checkout(page);
     await page.goto("https://www.saucedemo.com/");
   });
-  test("Successful purchase with standard_user", async () => {
+  test("Successful purchase with performance_glitch_user", async () => {
     await login.enterUserName("performance_glitch_user");
     await login.enterPassword("secret_sauce");
     await login.clickOnLoginButton();
@@ -43,7 +43,7 @@ test.describe("Purchase Journey Applying Filter", () => {
     expect(actualTotal).toBeCloseTo(expectedTotal, 2);
     await checkout.clickOnFinishButton();
     await expect(checkout.getSuccessfulOrderMessage()).toHaveText("Thank you for your order!");
-    
+
     await product.clickOnHamburgerMenu();
     await product.clickOnResetAppState();
     await product.clickOnLogoutButton();
