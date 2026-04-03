@@ -6,7 +6,7 @@ Project URL: https://www.saucedemo.com/
 
 Packages: @playwright/test, playwright, allure-playwright.
 
-Requirements: Node.js 18 or higher, and Java 8 or higher is required to generate allure reports using allure-commanline.
+Requirements: Node.js 18 or higher, and Java 8 or higher is required to generate allure reports using allure-commandline.
 
 ## Author
 
